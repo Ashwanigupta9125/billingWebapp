@@ -1,74 +1,125 @@
 .main {
-  text-align: center;
-  justify-content: center;
-  display: flex; 
-  padding-top: 90px;
-  padding-bottom: 90px;
-  background-color: #e1e3eb;
-}
-
-.imgs {
-    padding-top: 20px;
+    text-align: center;
     justify-content: center;
-    display: flex;
+    display: flex; 
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-color: #e1e3eb;
   }
-.container-image {
-  background-color: rgb(223, 221, 221); 
-  border-radius: 150px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 115px;
-  width: 115px;
+  
+  .imgs {
+      padding-top: 20px;
+      justify-content: center;
+      display: flex;
+    }
+  .container-image {
+    background-color: rgb(223, 221, 221); 
+    border-radius: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+  }
+  .profile {
+    height: 100px;
+    width: 100px;
+    border-radius: 130px;
+  } 
+  
+  input{
+      width: 300px;
+      height: 50px;
+      border-radius: 60px;
+      box-shadow: inset 0px 0px 25px 0px #888;
+      border: none;
+      outline: none;
+      background-color: #fff;
+  }
+  
+  .email{
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      padding: 14px 0 0 25px;
+  }
+  
+  .name{
+      padding-left: 70px;
+      font-size: 20px;
+  }
+  .second-input{
+      padding-top: 20px;
+  }
+  
+  .logging-but{
+      width: 250px;
+      height: 50px;
+      border-radius: 60px;
+      background-color: #b103fc;
+      color: white;
+      font-size: 25px;
+      border: none;
+  }
+  .login-button{
+      padding-top: 25px;
+  }
+  
+  .link{
+      font-size: 25px;
+      font-weight: 400;
+  }
+   a{
+       color: blue;
+   }
+   *{
+    margin:0;
+    padding:0;
+    text-decoration: none;
 }
-.profile {
-  height: 100px;
-  width: 100px;
-  border-radius: 130px;
-} 
-
-input{
-    width: 300px;
-    height: 50px;
-    border-radius: 60px;
-    box-shadow: inset 0px 0px 25px 0px #888;
-    border: none;
-    outline: none;
-    background-color: #fff;
+.container{
+    display:flex;
 }
-
-.email{
-    height: 25px;
-    width: 25px;
-    position: absolute;
-    padding: 14px 0 0 25px;
+main{
+    width: 100%;
+    padding: 20px;
 }
-
-.name{
-    padding-left: 70px;
+.sidebar{
+    background: #000;
+    color: #fff;
+    height: 100vh;
+    width: 200px;
+    transition: all 0.5s;
+}
+.top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+}
+.logo{
+    font-size: 30px;
+}
+.bars{
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+}
+.link{
+    display: flex;
+    color: #fff;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+.link:hover{
+    background:lightskyblue;
+    color: #000;
+    transition: all 0.5s;
+}
+.active{
+    background: lightskyblue;
+    color: #000;
+}
+.icon, .link_text{
     font-size: 20px;
 }
-.second-input{
-    padding-top: 20px;
-}
-
-button{
-    width: 380px;
-    height: 50px;
-    border-radius: 60px;
-    background-color: #b103fc;
-    color: white;
-    font-size: 25px;
-    border: none;
-}
-.login-button{
-    padding-top: 25px;
-}
-
-.link{
-    font-size: 25px;
-    font-weight: 400;
-}
- a{
-     color: blue;
- }

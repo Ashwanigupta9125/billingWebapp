@@ -1,17 +1,32 @@
 package com.example.billingbackend.controller;
 
 
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.hibernate.annotations.Check;
+import org.slf4j.helpers.CheckReturnValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.billingbackend.Service.UserDetailService;
 import com.example.billingbackend.dao.ItemBoughtRepostory;
 import com.example.billingbackend.dao.ProductsRepository;
 import com.example.billingbackend.dao.SellerRepository;
+import com.example.billingbackend.dao.UserDetailRepostory;
+import com.example.billingbackend.dao.UserDetailrepo;
+import com.example.billingbackend.entities.AdminDetail;
 import com.example.billingbackend.entities.ItemBought;
 import com.example.billingbackend.entities.Products;
 import com.example.billingbackend.entities.Seller;
+import com.example.billingbackend.entities.UserDetail;
 
+import ch.qos.logback.core.model.Model;
 import test.Testrepocrud;
 
 
@@ -20,52 +35,58 @@ import test.Testrepocrud;
 @RestController
 public class TestController {
 	
-	@Autowired
-	private ProductsRepository userrepo;
+//	@Autowired
+//	private ProductsRepository userrepo;
+//
+//
+//	@Autowired
+//	private SellerRepository sellerRepository;
+//	
+//	
+//	@Autowired
+//	private ItemBoughtRepostory itemBoughtRepostory;
+	
+	
+//	@Autowired
+//	private UserDetailrepo userDetailrepo;
+	
+	//@Autowired
+	//private UserDetailService ueserserService;
+	
+	//Products product01=new Products("toy015");
 
-
-	@Autowired
-	private SellerRepository sellerRepository;
+	//UserDetail user_detail=new UserDetail("ash", "ash");
 	
-	
-	@Autowired
-	private ItemBoughtRepostory itemBoughtRepostory;
-
-	
-	
-	
-	Seller seller01=new Seller("ash05", "54156154186", "gfuhgfgashd ashjbd js");
-	Products product01=new Products("toy010");
-	Seller seller02=new Seller("ash010", "54156154186", "gfuhgfgashd ashjbd js");
-	Products product02=new Products("toy015");
-	
-	
-    ItemBought itemBought01=new ItemBought(seller02,product02,100 , 1000);
-  //  ItemBought itemBought02=new ItemBought(seller01,product01,100 , 1000);
-  //  ItemBought itemBought03=new ItemBought(seller01,product01,100 , 1000);
-  //  ItemBought itemBought04=new ItemBought(seller02,product02,100 , 1000);
-  //  ItemBought itemBought05=new ItemBought(seller02,product02,100 , 1000);
-   // ItemBought itemBought06=new ItemBought(seller02,product02,100 , 1000);
-    //ItemBought itemBought07=new ItemBought(seller02,product01,100 , 1000);
- 
+	//ItemBought iemBought=new ItemBought(7, 7, 7, 10);	
 	
 	@GetMapping("/test")
-	public String index() {
-			
-		//sellerRepository.save(seller01);
-		//userrepo.save(product01);
-		itemBoughtRepostory.save(itemBought01);
-		//itemBoughtRepostory.save(itemBought02);
-		//itemBoughtRepostory.save(itemBought03);
-		//itemBoughtRepostory.save(itemBought04);
-//		itemBoughtRepostory.save(itemBought05);
-//		itemBoughtRepostory.save(itemBought06);
-//		itemBoughtRepostory.save(itemBought07);
+	private String index() {
+	
+		System.out.print("Method is stared.............");
+     //	Optional<UserDetail> l1 =ueserserService.gettingDetail();
+//		System.out.print("request send is complet.............");
+//		System.out.print(l1);
 		
-		System.out.println("heloooooooooooooo");
-		return "test";
+		
+		//userDetailrepo.save(user_detail);
+		//System.out.print(UserDetail)
+     //	System.out.print(l1.getUserName());
+		return "Request completed........";
+		
 		
 	}
+	
+	
+//	@PostMapping("/check")
+//	public String CheckValue( @ModelAttribute AdminDetail  user,Model m1 )
+//     {
+//	    System.out.println("helllo");
+//	    System.out.println(user.getUserName());
+//	    System.out.println(user.getPass());
+//	    System.out.println(user);
+//		System.out.println("check api is hit");
+//		return "ans";
+//	}
 	
 
 }

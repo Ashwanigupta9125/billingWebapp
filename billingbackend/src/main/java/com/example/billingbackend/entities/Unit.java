@@ -6,12 +6,12 @@ package com.example.billingbackend.entities;
 //import jakarta.persistence.GenerationType;
 //import jakarta.persistence.Id;
 //import jakarta.persistence.Table;
-
-
+//
+//
 //@Entity
 //@Table
-public class Unit{
-	
+//public class Unit{
+//	
 //		
 //		@Id
 //	    @GeneratedValue(strategy= GenerationType.AUTO)
@@ -33,5 +33,5 @@ public class Unit{
 //		@Column
 //		private double packet;
 //		
-
-}
+//
+//}

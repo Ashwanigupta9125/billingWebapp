@@ -1,7 +1,5 @@
 package com.example.billingbackend.entities;
 
-
-
 import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -10,30 +8,23 @@ import org.hibernate.annotations.SourceType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-
 
 @Entity
 @Table
-public class ItemBought {
-	
-	
+public class ItemSelling {
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-	private int buying_id;
+	private int selling_id;
 	@Column(nullable=false)
 	private int product_id;	
 	@Column(nullable=false)
-	private int seller_id;
+	private int customer_id;
 	@Column(nullable=false)
 	private double price_unit;
 	@Column(nullable=false)
@@ -44,36 +35,33 @@ public class ItemBought {
 	private int payment_done;
 	@Column
 	private Boolean payment_status;
-	
 	@JsonFormat(pattern = "yyyy-mm-dd",shape = Shape.NUMBER_INT)
 	@CreationTimestamp(source = SourceType.DB)	
 	private LocalDate date;
-
 	
 	
-
-	
-	public ItemBought(int product_id, int seller_id, double price_unit, double quantity, String unit, int payment_done) {
+	public ItemSelling( int product_id, int customer_id, double price_unit, double quantity, String unit,
+			int payment_done) {
 		super();
+		
 		this.product_id = product_id;
-		this.seller_id = seller_id;
+		this.customer_id = customer_id;
 		this.price_unit = price_unit;
 		this.quantity = quantity;
 		this.unit = unit;
 		this.payment_done = payment_done;
+
 	
 	}
 
 
-
-	public ItemBought() {
+	public ItemSelling() {
 		super();
 	}
 
 
-	
-	public int getBuying_id() {
-		return buying_id;
+	public int getSelling_id() {
+		return selling_id;
 	}
 
 
@@ -83,23 +71,19 @@ public class ItemBought {
 	}
 
 
-
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
 
 
-
-	public int getSeller_id() {
-		return seller_id;
+	public int getCustomer_id() {
+		return customer_id;
 	}
 
 
-
-	public void setSeller_id(int seller_id) {
-		this.seller_id = seller_id;
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
 	}
-
 
 
 	public double getPrice_unit() {
@@ -107,11 +91,9 @@ public class ItemBought {
 	}
 
 
-
 	public void setPrice_unit(double price_unit) {
 		this.price_unit = price_unit;
 	}
-
 
 
 	public double getQuantity() {
@@ -119,11 +101,9 @@ public class ItemBought {
 	}
 
 
-
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
-
 
 
 	public String getUnit() {
@@ -131,11 +111,9 @@ public class ItemBought {
 	}
 
 
-
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-
 
 
 	public int getPayment_done() {
@@ -143,11 +121,9 @@ public class ItemBought {
 	}
 
 
-
 	public void setPayment_done(int payment_done) {
 		this.payment_done = payment_done;
 	}
-
 
 
 	public Boolean getPayment_status() {
@@ -155,11 +131,9 @@ public class ItemBought {
 	}
 
 
-
 	public void setPayment_status(Boolean payment_status) {
 		this.payment_status = payment_status;
 	}
-
 
 
 	public LocalDate getDate() {
@@ -167,19 +141,9 @@ public class ItemBought {
 	}
 
 
-
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-
 	
-
-	
-//	@JsonFormat(pattern = "yyyy-mm-dd",shape = Shape.NUMBER_INT)
-//	@UpdateTimestamp(source = SourceType.DB)
-//	private Instant lastUpdatedOn;
-	
-   
-
 
 }
