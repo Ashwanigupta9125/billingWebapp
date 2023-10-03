@@ -26,7 +26,7 @@ public class Seller {
 	@Column(nullable=false)
 	private String city;	
 	@Column
-	private int paymrnt_due;
+	private int payment_due;
 
 	
 	public Seller() {
@@ -75,11 +75,11 @@ public class Seller {
 	}
 
 	public int getPaymrnt_due() {
-		return paymrnt_due;
+		return payment_due;
 	}
 
 	public void setPaymrnt_due(int paymrnt_due) {
-		this.paymrnt_due = paymrnt_due;
+		this.payment_due = paymrnt_due;
 	}
 
 	public int getSeller_id() {

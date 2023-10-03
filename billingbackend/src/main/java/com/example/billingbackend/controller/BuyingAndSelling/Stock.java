@@ -21,11 +21,11 @@ public class Stock {
 	private ProductsRepository productsRepository;
 
 	@GetMapping("/{id}")
-	public int getCurrentStock(@PathVariable int id) {
+	public double getCurrentStock(@PathVariable int id) {
 		
 		try {
 			return  productsRepository.findById(id).get().getAvailable_stock();
-		} catch (Exception e) {
+		}catch (Exception e) {			
 			System.out.print("Don't receved any value ################");
 		
 		}

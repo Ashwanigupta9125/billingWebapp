@@ -25,7 +25,7 @@ public class Products {
 	@Column(nullable=false)
 	private String product_catagory;
 	@Column
-	private int available_stock;
+	private double available_stock;
 	
 	
 
@@ -63,11 +63,11 @@ public class Products {
 		this.product_catagory = product_catagory;
 	}
 
-	public int getAvailable_stock() {
+	public double getAvailable_stock() {
 		return available_stock;
 	}
 
-	public void setAvailable_stock(int available_stock) {
+	public void setAvailable_stock(double available_stock) {
 		this.available_stock = available_stock;
 	}
 

@@ -58,6 +58,18 @@ public class TestController {
 	//UserDetail user_detail=new UserDetail("ash", "ash");
 	
 	//ItemBought iemBought=new ItemBought(7, 7, 7, 10);	
+	@Autowired
+	public ProductsRepository productsRepository;
+	
+	@GetMapping("/check01")
+	public void check01() {
+		
+		System.out.print("runnig check01..........................");
+		Optional<Products> p1=productsRepository.findById(53);
+		System.out.print( p1.get().getProduct_name());
+		productsRepository.UpdateStock(1205,53);
+		
+	}
 	
 	@GetMapping("/test")
 	private String index() {
