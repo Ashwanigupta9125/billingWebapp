@@ -1,10 +1,11 @@
 import React from 'react';
+import InvoiceForm from '../Components/billStructure/InvoiceForm';
 
 const Dashboard = () => {
     return (
-        <div>
-            <h1>all buy happen here + bill Generate</h1>
-        </div>
+      <>
+        <InvoiceForm/>
+      </> 
     );
 };
 

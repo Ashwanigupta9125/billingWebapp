@@ -1,9 +1,11 @@
 import React from 'react';
+import Logging from '../Components/Logging';
 
 const Comment = () => {
     return (
         <div>
-            <h1>Comment page</h1>
+            <Logging/>
+            
         </div>
     );
 };

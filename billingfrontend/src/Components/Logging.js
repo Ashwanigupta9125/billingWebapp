@@ -26,11 +26,11 @@ export default function Logging() {
 
  
     return (
-    <div className='main'>
-        <div className='sub_main'>
-            <div className='imgs'>
-                <div className='container-imge'>
-                <img src={profile} alt="user pic" className="profile" />
+    <div className='main_loggin'>
+        <div className='sub_main_loggin'>
+            <div className='imgs_loggin'>
+                <div className='container-imge_loggin'>
+                <img src={profile} alt="user pic" className="profile_loggin" />
                 </div>
             </div>
 
@@ -38,21 +38,17 @@ export default function Logging() {
                 <h1>Logging page</h1>
                 <form id='frm' action="http://localhost:8080/check"  method="GET">
                 <div>
-                <img src={mail} alt='email' className='email'/>
-                <input type='text' placeholder='Enter User ID'   className='name' name='user_id'/>
+                <img src={mail} alt='email' className='email_loggin'/>
+                <input type='text' placeholder='Enter User ID'   className='name_loggin' name='user_id'/>
                 </div>
-                <div className='second-input'>
-                <img src={pass} alt='Password' className='email'/>
-                <input type="password" placeholder='Enter your password' className='name' name='password'/>
+                <div className='second-input_loggin'>
+                <img src={pass} alt='Password' className='email_loggin'/>
+                <input type="password" placeholder='Enter your password' className='name_loggin' name='password'/>
                 </div>
-                <div className='login-button'>
-                <input className="logging-but"   type='submit' onClick={myfun} onSubmit={myfun} />
+                <div className='login-button_loggin'>
+                <input className="logging-but_loggin"   type='submit' onClick={myfun} onSubmit={myfun} />
                 </div>
                 </form>
-                  
-                   
-               
-
             </div>
 
         </div>
