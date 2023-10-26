@@ -12,7 +12,7 @@ import com.example.billingbackend.dao.ProductsRepository;
 import com.example.billingbackend.entities.ItemBought;
 
 @RestController
-@RequestMapping("/buy")
+@RequestMapping("/lock/buy")
 public class BuyStock {
 	
 	@Autowired

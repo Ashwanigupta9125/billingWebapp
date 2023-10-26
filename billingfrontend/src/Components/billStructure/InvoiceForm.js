@@ -182,12 +182,7 @@ class InvoiceForm extends React.Component {
                     <span className="current-date">{new Date().toLocaleDateString()}</span>
                   </div>
                 </div>
-                <div className="d-flex flex-row align-items-center">
-                  <span className="fw-bold d-block me-2">Due&nbsp;Date:</span>
-                  <Form.Control type="date" value={this.state.dateOfIssue} name={"dateOfIssue"} onChange={(event) => this.editField(event)} style={{
-                      maxWidth: '150px'
-                    }} required="required"/>
-                </div>
+
               </div>
               <div className="d-flex flex-row align-items-center">
                 <span className="fw-bold me-2">Invoice&nbsp;Number:&nbsp;</span>
@@ -241,7 +236,7 @@ class InvoiceForm extends React.Component {
                 <div className="d-flex flex-row align-items-start justify-content-between" style={{
                     fontSize: '1.125rem'
                   }}>
-                  <span className="fw-bold">Total  xxxxxxxxxxxxx:
+                  <span className="fw-bold">Total  :
                   </span>
                   <span className="fw-bold">{this.state.currency}
                     {this.state.total || 0}</span>
@@ -318,7 +313,7 @@ class InvoiceForm extends React.Component {
                 <div className="d-flex flex-row align-items-start justify-content-between" style={{
                     fontSize: '1.125rem'
                   }}>
-                  <span className="fw-bold">Total  xxxxxxxxxxxxx:
+                  <span className="fw-bold">Total :
                   </span>
                   <span className="fw-bold">{this.state.currency}
                     {this.state.total || 0}</span>

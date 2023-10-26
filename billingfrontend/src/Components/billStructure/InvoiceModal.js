@@ -62,7 +62,7 @@ class InvoiceModal extends React.Component {
                 </Col>
                 <Col md={4}>
                   <div className="fw-bold mt-2">Date Of Issue:</div>
-                  <div>{this.props.info.dateOfIssue||''}</div>
+                  <div>{ new Date().toLocaleDateString() }</div>
                 </Col>
               </Row>
               <Table className="mb-0">

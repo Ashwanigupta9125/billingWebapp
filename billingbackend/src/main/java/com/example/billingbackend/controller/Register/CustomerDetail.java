@@ -15,7 +15,7 @@ import com.example.billingbackend.entities.Seller;
 
 
 @RestController
-@RequestMapping("/c_detail")
+@RequestMapping("/lock/c_detail")
 public class CustomerDetail {
 	
 	@Autowired

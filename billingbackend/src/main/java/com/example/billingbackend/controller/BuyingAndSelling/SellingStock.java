@@ -11,7 +11,7 @@ import com.example.billingbackend.dao.ItemSellingRepository;
 import com.example.billingbackend.entities.ItemSelling;
 
 @RestController
-@RequestMapping("/sell")
+@RequestMapping("/lock/sell")
 public class SellingStock {
 	
 	@Autowired

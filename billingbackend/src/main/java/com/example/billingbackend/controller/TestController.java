@@ -8,10 +8,12 @@ import java.util.Optional;
 import org.hibernate.annotations.Check;
 import org.slf4j.helpers.CheckReturnValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.billingbackend.Service.UserDetailService;
@@ -31,8 +33,9 @@ import test.Testrepocrud;
 
 
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/lock")
 public class TestController {
 	
 //	@Autowired
@@ -61,44 +64,29 @@ public class TestController {
 	@Autowired
 	public ProductsRepository productsRepository;
 	
+
 	@GetMapping("/check01")
 	public void check01() {
 		
 		System.out.print("runnig check01..........................");
-		Optional<Products> p1=productsRepository.findById(53);
-		System.out.print( p1.get().getProduct_name());
-		productsRepository.UpdateStock(1205,53);
+		
+		//productsRepository.UpdateStock(1205,53);
 		
 	}
+	
 	
 	@GetMapping("/test")
 	private String index() {
 	
 		System.out.print("Method is stared.............");
-     //	Optional<UserDetail> l1 =ueserserService.gettingDetail();
-//		System.out.print("request send is complet.............");
-//		System.out.print(l1);
-		
-		
-		//userDetailrepo.save(user_detail);
-		//System.out.print(UserDetail)
-     //	System.out.print(l1.getUserName());
+
 		return "Request completed........";
 		
 		
 	}
 	
 	
-//	@PostMapping("/check")
-//	public String CheckValue( @ModelAttribute AdminDetail  user,Model m1 )
-//     {
-//	    System.out.println("helllo");
-//	    System.out.println(user.getUserName());
-//	    System.out.println(user.getPass());
-//	    System.out.println(user);
-//		System.out.println("check api is hit");
-//		return "ans";
-//	}
+
 	
 
 }

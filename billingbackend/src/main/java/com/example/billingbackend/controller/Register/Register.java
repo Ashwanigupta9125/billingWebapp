@@ -14,7 +14,7 @@ import com.example.billingbackend.entities.Products;
 import com.example.billingbackend.entities.Seller;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/lock/register")
 public class Register {
 	
 	@Autowired

@@ -7,6 +7,10 @@ import Analytics from '../pages/Analytics.jsx';
 import Comment from '../pages/Comment.jsx';
 import Product from '../pages/Product.jsx';
 import ProductList from '../pages/ProductList.jsx';
+import Logging from './Logging';
+import Userdashboard from './Userdashboard';
+import Privateroute from './Privateroute';
+import Logout from './Logout';
 
 
 export default function Home() {
@@ -22,6 +26,16 @@ export default function Home() {
           <Route path="/comment" element={<Comment />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/login" element={<Logging />} />
+          
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/user" element={<Privateroute />} >
+
+           <Route path="userdashboard" element={<Userdashboard />} />
+          </Route>
+                  
+  
+
           <Route path="/productList" element={<ProductList />} />
         </Routes>
       </Sidebar>

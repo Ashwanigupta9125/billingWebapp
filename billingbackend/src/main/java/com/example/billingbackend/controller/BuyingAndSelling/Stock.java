@@ -14,7 +14,7 @@ import com.example.demo.Entity.Products;
 
 
 @RestController
-@RequestMapping("/currentStock")
+@RequestMapping("/lock/currentStock")
 public class Stock {
 	
 	@Autowired

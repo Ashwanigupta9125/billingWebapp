@@ -14,7 +14,7 @@ import com.example.billingbackend.entities.ItemBought;
 import com.example.billingbackend.entities.ItemSelling;
 
 @RestController
-@RequestMapping("/analysis")
+@RequestMapping("/lock/analysis")
 public class Analysis{
 	
 	@Autowired

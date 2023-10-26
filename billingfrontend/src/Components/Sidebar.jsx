@@ -7,8 +7,12 @@ import {
     FaRegChartBar,
     FaCommentAlt,
     FaShoppingBag,
-    FaThList
+    FaThList,
+    FaGrinAlt,
+    FaGrinBeamSweat
 }from "react-icons/fa";
+
+
 import { NavLink } from 'react-router-dom';
 
 
@@ -49,6 +53,22 @@ const Sidebar = ({children}) => {
 
         
     ]
+
+
+    const menuItemSec=[
+        {
+            path:"/login",
+            name:"Loggin",
+            icon:<FaGrinAlt/>
+        },
+        {
+            path:"/logout",
+            name:"Loggout",
+            icon:<FaGrinBeamSweat/>
+        }
+     
+    ]
+
     return (
         <div className="container_navbar">
            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
@@ -66,6 +86,21 @@ const Sidebar = ({children}) => {
                        </NavLink>
                    ))
                }
+
+
+               {   
+            
+                   menuItemSec.map((item, index)=>(
+                    <nav>
+                       <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                           <div className="icon">{item.icon}</div>
+                           <div style={{display: isOpen ? "block" : "none"}} className="link_text " >{item.name}</div>
+                       </NavLink>
+                       </nav>
+                   ))
+               
+               }
+
            </div>
            <main>{children}</main>
         </div>
