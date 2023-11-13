@@ -39,7 +39,7 @@ public class Register {
 	
 	@PostMapping("/product")
 	private void AddSeller(@RequestBody Products products) {
-		
+		System.out.print(products);
 		productsRepository.save(products);
 	}
 	

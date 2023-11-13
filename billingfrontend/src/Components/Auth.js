@@ -3,8 +3,8 @@
 export const isLoggedIN = () =>{
  let data =localStorage.getItem("data");
   
- if(data != null) return true;
- else return false;
+ if(data == null || data == '"Credentials Invalid !!"' ) return false;
+ else return true;
  };
 
 
@@ -12,11 +12,7 @@ export const isLoggedIN = () =>{
 
 
 export const doLogin=(data,next)=>{
-    
-  
-
     localStorage.setItem("data",JSON.stringify(data));
-   
     next()
 };
 

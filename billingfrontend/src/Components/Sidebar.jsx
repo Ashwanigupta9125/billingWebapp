@@ -21,32 +21,32 @@ const Sidebar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/",
+            path:"/user/dashboard",
             name:"Generate Bill",
             icon:<FaTh/>
         },
         {
-            path:"/about",
+            path:"/user/about",
             name:"Customer Detail",
             icon:<FaUserAlt/>
         },
         {
-            path:"/analytics",
+            path:"/user/analytics",
             name:"Analytics",
             icon:<FaRegChartBar/>
         },
         {
-            path:"/product",
+            path:"/user/product",
             name:"Product",
             icon:<FaShoppingBag/>
         },
         {
-            path:"/productList",
+            path:"/user/productList",
             name:"Product List",
             icon:<FaThList/>
         },
         {
-            path:"/comment",
+            path:"/user/comment",
             name:"Comment",
             icon:<FaCommentAlt/>
         }
@@ -91,12 +91,12 @@ const Sidebar = ({children}) => {
                {   
             
                    menuItemSec.map((item, index)=>(
-                    <nav>
+                   
                        <NavLink to={item.path} key={index} className="link" activeclassName="active">
                            <div className="icon">{item.icon}</div>
                            <div style={{display: isOpen ? "block" : "none"}} className="link_text " >{item.name}</div>
                        </NavLink>
-                       </nav>
+                       
                    ))
                
                }

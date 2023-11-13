@@ -20,23 +20,29 @@ export default function Home() {
     <BrowserRouter>
       <Sidebar>
         <Routes>
-        <Route path="/" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/comment" element={<Comment />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/product" element={<Product />} />
+        <Route path="/" element={<Logging />} />
           <Route path="/login" element={<Logging />} />
-          
-          <Route path="/logout" element={<Logout />} />
           <Route path="/user" element={<Privateroute />} >
+          
 
            <Route path="userdashboard" element={<Userdashboard />} />
+
+           /////////////////////// creating this link as private ////////////////////////////////////
+           <Route path="productList" element={<ProductList />} />
+           <Route path="about" element={<About />} />
+           <Route path="comment" element={<Comment />} />
+           <Route path="analytics" element={<Analytics />} />
+           <Route path="product" element={<Product />} />
+
+          <Route path="dashboard" element={<Dashboard />} />
+
+          ///////////////////////////////////////////////////////
           </Route>
                   
   
 
-          <Route path="/productList" element={<ProductList />} />
+         
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

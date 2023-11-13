@@ -1,14 +1,20 @@
 import React from 'react'
-import { doLogout } from './Auth'
+import { doLogout, isLoggedIN } from './Auth'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function Logout() {
 
+const [isHidden, setIsHidden] = useState(false);
+
  function onSubmitHandle(){
    
-
    doLogout(()=>{
     console.log("LOggout complete");
+    setIsHidden(true)
+
+    isLoggedIN();
    });
  }
 
@@ -22,7 +28,18 @@ export default function Logout() {
         
         <div className='text-center'>
         <button onClick={onSubmitHandle} type="button" class="btn btn-danger  btn-lg ">Logg  Out</button>
+
         </div>
+
+
+        {isHidden &&  <div className="text-center my-3" >
+                        <h1> Loggout Successfully .. .. .</h1>
+                        <Link to="/login">
+                        <button type="button" class="btn btn-primary" >Go To Loggin</button>
+                        </Link>
+                      </div>
+                       
+                        }
     </div>
   )
 }

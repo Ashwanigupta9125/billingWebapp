@@ -9,25 +9,57 @@ import { BiPaperPlane, BiCloudDownload } from "react-icons/bi";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf'
 
-function GenerateInvoice() {
-  html2canvas(document.querySelector("#invoiceCapture")).then((canvas) => {
-    const imgData = canvas.toDataURL('image/png', 1.0);
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'pt',
-      format: [612, 792]
-    });
-    pdf.internal.scaleFactor = 1;
-    const imgProps= pdf.getImageProperties(imgData);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save('invoice-001.pdf');
-  });
-}
+// function GenerateInvoice() {
+//   html2canvas(document.querySelector("#invoiceCapture")).then((canvas) => {
+//     const imgData = canvas.toDataURL('image/png', 1.0);
+//     const pdf = new jsPDF({
+//       orientation: 'portrait',
+//       unit: 'pt',
+//       format: [612, 792]
+//     });
+//     pdf.internal.scaleFactor = 1;
+//     const imgProps= pdf.getImageProperties(imgData);
+//     const pdfWidth = pdf.internal.pageSize.getWidth();
+//     const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+//     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+//     pdf.save('invoice-001.pdf');
+//   });
+// }
 
 class InvoiceModal extends React.Component {
 
+
+
+  GenerateInvoice=()=>{
+    html2canvas(document.querySelector("#invoiceCapture")).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png', 1.0)
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'pt',
+        format: [612, 792]
+      });
+      pdf.internal.scaleFactor = 1;
+      const imgProps= pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('invoice-001.pdf');
+    });
+    console.log("hello9")
+    console.log(this.props.items)
+
+   ///////////////////craeting JSON OBJ ////////////////////////
+   const ItemDeatil=[];
+   this.props.items.map((item)=>{
+    console.log(item)
+   })
+   
+
+   //////////////////////////////////////   Api request with axios   ///////////////////
+
+
+
+  }
 
   render() {
     return(
@@ -36,7 +68,7 @@ class InvoiceModal extends React.Component {
           <div id="invoiceCapture">
             <div className="d-flex flex-row justify-content-between align-items-start bg-light w-100 p-4">
               <div className="w-100">
-                <h4 className="fw-bold my-2">{this.props.info.billFrom||'John Uberbacher'}</h4>
+                <h4 className="fw-bold my-2">{this.props.info.billFrom||'Ashwani'}</h4>
                 <h6 className="fw-bold text-secondary mb-1">
                   Invoice #: {this.props.info.invoiceNumber||''}
                 </h6>
@@ -76,6 +108,7 @@ class InvoiceModal extends React.Component {
                 </thead>
                 <tbody>
                   {this.props.items.map((item, i) => {
+                    
                     return (
                       <tr id={i} key={i}>
                         <td style={{width: '70px'}}>
@@ -133,12 +166,12 @@ class InvoiceModal extends React.Component {
           <div className="pb-4 px-4">
             <Row>
               <Col md={6}>
-                <Button variant="primary" className="d-block w-100" onClick={GenerateInvoice}>
+                <Button variant="primary" className="d-block w-100" onClick={this.GenerateInvoice}>
                   <BiPaperPlane style={{width: '15px', height: '15px', marginTop: '-3px'}} className="me-2"/>Send Invoice
                 </Button>
               </Col>
               <Col md={6}>
-                <Button variant="outline-primary" className="d-block w-100 mt-3 mt-md-0" onClick={GenerateInvoice}>
+                <Button variant="outline-primary" className="d-block w-100 mt-3 mt-md-0" onClick={this.GenerateInvoice}>
                   <BiCloudDownload style={{width: '16px', height: '16px', marginTop: '-3px'}} className="me-2"/>
                   Download Copy
                 </Button>

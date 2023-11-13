@@ -9,6 +9,8 @@ import InvoiceItem from './InvoiceItem';
 import InvoiceModal from './InvoiceModal';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+
+
 class InvoiceForm extends React.Component {
   constructor(props) {
     super(props);
@@ -136,7 +138,7 @@ class InvoiceForm extends React.Component {
  
 
   buy_button=()=>{
-
+ 
     this.setState( {
                   sell_button_color : "primary",
                   buy_button_color : "secondary",
@@ -147,6 +149,12 @@ class InvoiceForm extends React.Component {
                   billFromEmail: '',
                   billFromAddress: ''
                   } )
+
+                  var myInput1 = document.getElementById('billto');
+                  myInput1.readOnly= true;
+                  var myInput2 = document.getElementById('billFrom');
+                  myInput2.readOnly= false;
+
   
   }
 
@@ -162,9 +170,22 @@ class InvoiceForm extends React.Component {
                      billToEmail: '',
                      billToAddress: '',
   }  )
+
+  var myInput1 = document.getElementById('billFrom');
+  myInput1.readOnly= true;
+  var myInput2 = document.getElementById('billto');
+  myInput2.readOnly= false;
    
   }
 
+
+  runBillTo=()=>{
+    console.log("run on Bill TO ")
+  }
+
+  runBillFrom=()=>{
+    console.log("run on Bill From")
+  }
 
 
   render() {
@@ -193,17 +214,17 @@ class InvoiceForm extends React.Component {
             </div>
             <hr className="my-4"/>
             <Row className="mb-5">
-              <Col>
-                <Form.Label className="fw-bold">Bill to:</Form.Label>
-                <Form.Control placeholder={"Who is this invoice to?"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
-                <Form.Control placeholder={"Email address"} value={this.state.billToEmail} type="email" name="billToEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
-                <Form.Control placeholder={"Billing address"} value={this.state.billToAddress} type="text" name="billToAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+              <Col >
+                <Form.Label  className="fw-bold">Bill to:</Form.Label>
+                <Form.Control id="billto"  placeholder={"Who is this invoice to?"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} onkeyup={this.runBillTo} autoComplete="name"  required="required"/>
+                <Form.Control  placeholder={"Email address"} value={this.state.billToEmail} type="email" name="billToEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" readonly="readonly" required="required"/>
+                <Form.Control  placeholder={"Billing address"} value={this.state.billToAddress} type="text" name="billToAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} readonly="readonly"  required="required"/>
               </Col>
               <Col>
                 <Form.Label className="fw-bold">Bill from:</Form.Label>
-                <Form.Control placeholder={"Who is this invoice from?"} rows={3} value={this.state.billFrom} type="text" name="billFrom" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
-                <Form.Control placeholder={"Email address"} value={this.state.billFromEmail} type="email" name="billFromEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
-                <Form.Control placeholder={"Billing address"} value={this.state.billFromAddress} type="text" name="billFromAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                <Form.Control id="billFrom"  placeholder={"Who is this invoice from?"} rows={3} value={this.state.billFrom} type="text" name="billFrom" className="my-2" onChange={(event) => this.editField(event)} onkeyup={this.runBillFrom} autoComplete="name" required="required"/>
+                <Form.Control  placeholder={"Email address"} value={this.state.billFromEmail} type="email" name="billFromEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" readonly="readonly" required="required"/>
+                <Form.Control  placeholder={"Billing address"} value={this.state.billFromAddress} type="text" name="billFromAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} readonly="readonly"  required="required"/>
               </Col>
             </Row>
 

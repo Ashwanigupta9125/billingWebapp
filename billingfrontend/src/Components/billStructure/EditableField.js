@@ -28,6 +28,10 @@ class EditableField extends React.Component {
           presicion={this.props.cellData.presicion}
           aria-label={this.props.cellData.name}
           onChange={this.props.onItemizedItemEdit}
+          //onBlur={this.props.Run}
+          //onInput={this.props.Run}
+          onkeyup={this.props.Run}
+          list={this.props.cellData.suggestion}
           required
         />
       </InputGroup>

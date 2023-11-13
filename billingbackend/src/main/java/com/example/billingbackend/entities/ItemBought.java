@@ -30,48 +30,46 @@ public class ItemBought {
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
 	private int buying_id;
+	
 	@Column(nullable=false)
 	private int product_id;	
-	@Column(nullable=false)
-	private int seller_id;
+	
 	@Column(nullable=false)
 	private double price_unit;
+	
 	@Column(nullable=false)
-	private double quantity;	
+	private double quantity;
+	
 	@Column(nullable=false)
 	private String unit;
-	@Column
-	private int payment_done;
-	@Column
-	private Boolean payment_status;
 	
-	@JsonFormat(pattern = "yyyy-mm-dd",shape = Shape.NUMBER_INT)
-	@CreationTimestamp(source = SourceType.DB)	
-	private LocalDate date;
-
+	@ManyToOne()
+	@JoinColumn(name="Invoice_id")
+	private BillDetailBuy invoice_id;
 	
 	
 
-	
-	public ItemBought(int product_id, int seller_id, double price_unit, double quantity, String unit, int payment_done) {
+	public ItemBought(int product_id, double price_unit, double quantity, String unit) {
 		super();
 		this.product_id = product_id;
-		this.seller_id = seller_id;
 		this.price_unit = price_unit;
 		this.quantity = quantity;
 		this.unit = unit;
-		this.payment_done = payment_done;
-	
 	}
 
-
+	public ItemBought(int product_id, double price_unit, double quantity, String unit, BillDetailBuy invoice_id) {
+		super();
+		this.product_id = product_id;
+		this.price_unit = price_unit;
+		this.quantity = quantity;
+		this.unit = unit;
+		this.invoice_id = invoice_id;
+	}
 
 	public ItemBought() {
 		super();
 	}
 
-
-	
 	public int getBuying_id() {
 		return buying_id;
 	}
@@ -82,104 +80,58 @@ public class ItemBought {
 		return product_id;
 	}
 
-
-
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
-
-
-
-	public int getSeller_id() {
-		return seller_id;
-	}
-
-
-
-	public void setSeller_id(int seller_id) {
-		this.seller_id = seller_id;
-	}
-
-
 
 	public double getPrice_unit() {
 		return price_unit;
 	}
 
-
-
 	public void setPrice_unit(double price_unit) {
 		this.price_unit = price_unit;
 	}
-
-
 
 	public double getQuantity() {
 		return quantity;
 	}
 
-
-
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
-
-
 
 	public String getUnit() {
 		return unit;
 	}
 
-
-
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
 
-
-
-	public int getPayment_done() {
-		return payment_done;
+	public BillDetailBuy getInvoice_id() {
+		return invoice_id;
 	}
 
-
-
-	public void setPayment_done(int payment_done) {
-		this.payment_done = payment_done;
+	@Override
+	public String toString() {
+		return "ItemBought [buying_id=" + buying_id + ", product_id=" + product_id + ", price_unit=" + price_unit
+				+ ", quantity=" + quantity + ", unit=" + unit + ", invoice_id=" + invoice_id.toString() + "]";
 	}
 
-
-
-	public Boolean getPayment_status() {
-		return payment_status;
+	public void setInvoice_id(BillDetailBuy invoice_id) {
+		this.invoice_id = invoice_id;
 	}
 
-
-
-	public void setPayment_status(Boolean payment_status) {
-		this.payment_status = payment_status;
-	}
-
-
-
-	public LocalDate getDate() {
-		return date;
-	}
-
-
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
-	
-
-	
 //	@JsonFormat(pattern = "yyyy-mm-dd",shape = Shape.NUMBER_INT)
-//	@UpdateTimestamp(source = SourceType.DB)
-//	private Instant lastUpdatedOn;
-	
-   
+//	@CreationTimestamp(source = SourceType.DB)	
+//	private LocalDate date;
+//
+//	public LocalDate getDate() {
+//		return date;
+//	}
+//
+//	
+
 
 
 }

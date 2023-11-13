@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from 'react';
 import profile from "../image/profile.jpg"
 import pass from "../image/lock.png"
 import mail from "../image/mail.png"
 import axios from "axios";
-import { doLogin,getCurrentUserDetail } from "./Auth";
+import { doLogin,getCurrentUserDetail, isLoggedIN } from "./Auth";
+import { Link } from 'react-router-dom';
+
+
 
 
 
 export default function Logging() {
   
+  const [isHidden, setIsHidden] = useState(false);
+
+  
+
     function myfun(event){
         event.preventDefault();
 
@@ -33,6 +40,9 @@ export default function Logging() {
           "password" : UserDetail[1].value 
         } 
 
+        if(UserDetail[0].value==""||  UserDetail[1].value=="" )
+         return alert("please fill your Credentials ");
+         
      
         axios.post('http://localhost:8082/public/login',user)
         .then(function (response) {
@@ -49,22 +59,26 @@ export default function Logging() {
 
           })
           console.log(response.data);
+
+          setIsHidden(isLoggedIN() ? true : false)
+          console.log(isHidden);
+          console.log(isLoggedIN());
+          console.log(localStorage.getItem("data") +"xxxxxxxxxxxxxxxxxx");
+
         })
         .catch(error=>{
            console.log(error);
            console.log("hello wrong  XXXXXXXXXXXXXXX");
         })
 
-        
 
-
-      
       //console.log("request send.............");
     
       }
 
  
     return (
+      <>
     <div className='main_loggin'>
         <div className='sub_main_loggin'>
             <div className='imgs_loggin'>
@@ -90,8 +104,35 @@ export default function Logging() {
                 </form>
             </div>
 
+           
+          {isHidden &&  <div className="loginMessage" >
+                        <h1> Hello Loggin Successfully . . . . ..</h1>
+                        <Link to="/user/dashboard">
+                        <button type="button" class="btn btn-primary" >Click To Generate Bill</button>
+                        </Link>
+                        </div>
+                       
+                        }
+
+           {(!isHidden) &&  <div>
+                            <h1> Credentials Invalid !!</h1>
+                            <h1> Please Enter valid detail ...</h1>
+                           </div>
+                       
+                        }
+       
+          
+       
+
         </div>
-        </div>       
+
+       
+
+        </div>
+
+
+
+        </>    
     
     )
     }
