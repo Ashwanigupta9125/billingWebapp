@@ -30,7 +30,7 @@ class EditableField extends React.Component {
           onChange={this.props.onItemizedItemEdit}
           //onBlur={this.props.Run}
           //onInput={this.props.Run}
-          onkeyup={this.props.Run}
+          onKeyUp={this.props.Run}
           list={this.props.cellData.suggestion}
           required
         />

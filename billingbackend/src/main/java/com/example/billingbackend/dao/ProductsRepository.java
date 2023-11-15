@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.example.billingbackend.entities.Customer;
 import com.example.billingbackend.entities.Products;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,8 @@ public interface ProductsRepository extends JpaRepository< Products,Integer>{
 	
 	@Query(value ="SELECT product_name FROM Products where product_name like %:name% limit 5;",nativeQuery = true)
 	List<String> FindBySearchName(@Param("name") String name);
-
+	
+	@Query(value ="select * from Products where product_name =:name",nativeQuery = true)
+	public Products findbyproduct_name(@Param("name") String name);
 
 }

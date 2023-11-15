@@ -17,10 +17,7 @@ class InvoiceItem extends React.Component {
   
   
   render() {
-
-
     
-
     var onItemizedItemEdit = this.props.onItemizedItemEdit;
     var currency = this.props.currency;
     var rowDel = this.props.onRowDel;
@@ -59,54 +56,33 @@ class ItemRow extends React.Component {
     this.state = {
       query: '',
       q1 : null,
+      jwt :"",
+      valueOfDescription:"",
       responce: ""
     };
+    
     //this.state.responce=["this is empty array"];
     this.timeoutIdRef = React.createRef();
   }
 
    search=(value,args)=>{
-    console.log("check 001........")
-    console.log(value)
 
     const obj=getCurrentUserDetail(); 
-    let jwt=obj.jwtToken;
+    this.state.jwt=obj.jwtToken;
   //  let responceval=this;
     
     axios.get('http://localhost:8082/lock/Search/p/'+value,{
         headers: {
-            Authorization:  `Bearer ${jwt}`
+            Authorization:  `Bearer ${this.state.jwt}`
           }
     })
     .then((response) =>{
           
             console.log("logincccccccccccccccccc")
-            //console.log(response.data)
-
-          // this.setState({ responce: "response.data" });
-           // this.state.responce=response.data;
-          //  this.setState({responce: ["blue"]});
-
           this.setState({responce: response.data})
-          console.log(typeof this.state.responce)
           Object.keys(this.state.responce);
-          console.log(typeof this.state.responce)
-          Object.keys(this.state.responce).map((key) => {
-            
-            console.log(key,this.state.responce[key])
-          });
 
-          //  console.log("ckeckc state")
-          // console.log(response.data)  
-          // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs")
-          // console.log(this.state.responce)
-          // console.log(this.state.responce)
-          // console.log(this.state.responce)
-          // console.log('http://localhost:8082/lock/Search/'+value)
-          // console.log(this.state.responce)
 
-          // responceval=response.data;
-          //console.log(responceval)
           }
        )
     .catch(error=>{
@@ -134,6 +110,28 @@ class ItemRow extends React.Component {
     const { value } = event.target;
     this.setState({ query: value });
     this.debouncedSearch(value);
+
+    if (!event.keyCode) { // OR: if (e.keyCode === undefined)
+       
+    axios.get('http://localhost:8082/lock/Search/ps/'+value,{
+        headers: {
+            Authorization:  `Bearer ${this.state.jwt}`
+          }
+    })
+    .then((response) =>{
+            this.state.valueOfDescription="Id -"+response.data.product_id+" Catagory-"+response.data.product_catagory;
+          }
+       )
+    .catch(error=>{
+       console.log(error);
+       console.log("hello wrong  XXXXXXXXXXXXXXX");
+     
+    })
+
+
+
+    }
+
   };
   onDelEvent() {
     this.props.onDelEvent(this.props.item);
@@ -154,10 +152,9 @@ class ItemRow extends React.Component {
             cellData={{
             type: "text",
             name: "name",
-            suggestion: "suggestion",
+            suggestion: `suggestion-${this.props.item.id}`,
             placeholder: "Item name",
             value: this.props.item.name,
-           //value:{ query } ,
             id: this.props.item.id,
           } 
           }/>
@@ -166,18 +163,16 @@ class ItemRow extends React.Component {
             cellData={{
             type: "text",
             name: "description",
-            suggestion: "suggestion",
             placeholder: "Item description",
-            value: this.props.item.description,
+            value: this.state.valueOfDescription,
             id: this.props.item.id,
             
           }}/>
-          <datalist id='suggestion'>
+          <datalist id={`suggestion-${this.props.item.id}`}>
             {
               Object.keys(this.state.responce).map((key) => {
-                   return( <option key={key} value={this.state.responce[key]}>{this.state.responce[key]}</option>)
-                          //console.log(key,this.state.responce[key])
-                        })
+                return( <option key={key} value={this.state.responce[key]}>{this.state.responce[key]}</option>)
+                })
             }
           </datalist>
 

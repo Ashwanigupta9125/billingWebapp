@@ -8,6 +8,8 @@ import Card from 'react-bootstrap/Card';
 import InvoiceItem from './InvoiceItem';
 import InvoiceModal from './InvoiceModal';
 import InputGroup from 'react-bootstrap/InputGroup';
+import axios from 'axios';
+import { getCurrentUserDetail } from '../Auth';
 
 
 
@@ -35,6 +37,9 @@ class InvoiceForm extends React.Component {
       discountAmmount: '0.00',
       buy_button_color : "primary",
       sell_button_color : "secondary",
+      jwt :"",
+      valueOfDescription:"",
+      responce: ""
     };
     this.state.items = [
       {
@@ -46,6 +51,7 @@ class InvoiceForm extends React.Component {
       }
     ];
     this.editField = this.editField.bind(this);
+    this.timeoutIdRef = React.createRef();
   }
 
   componentDidMount(prevProps) {
@@ -177,17 +183,99 @@ class InvoiceForm extends React.Component {
   myInput2.readOnly= false;
    
   }
+/////////////////////////////////////////////api call to search///////////
+  debounce = (func, delay) => {
+    return function () {
+      const context = this;  
+      const args = arguments;
+      clearTimeout(context.timeoutIdRef.current);
+      context.timeoutIdRef.current = setTimeout(() => {
+        func.apply(context, args);
+      }, delay);
+    };
+  };
 
+search=(value,args)=>{
+ 
+  const obj=getCurrentUserDetail(); 
+  this.state.jwt=obj.jwtToken;
+//  let responceval=this;
+  
+  axios.get('http://localhost:8082/lock/Search/'+args+'/'+value,{
+      headers: {
+          Authorization:  `Bearer ${this.state.jwt}`
+        }
+  })
+  .then((response) =>{
+          this.setState({responce: response.data})
+          Object.keys(this.state.responce);
+     
 
-  runBillTo=()=>{
-    console.log("run on Bill TO ")
+        }
+     )
+  .catch(error=>{
+     console.log(error);
+     console.log("hello wrong  XXXXXXXXXXXXXXX");
+     console.log('http://localhost:8082/lock/Search/'+value)
+  })
+ 
+}
+
+ debouncedSearch = this.debounce(this.search,500);
+
+  runBillTo=(event)=>{
+    const { value } = event.target;
+    const urlVal='c';
+    this.debouncedSearch(value,urlVal);
+
+    if (!event.keyCode) { // OR: if (e.keyCode === undefined)
+
+   axios.get('http://localhost:8082/lock/Search/cs/'+value,{
+       headers: {
+           Authorization:  `Bearer ${this.state.jwt}`
+         }
+   }).then((response) =>{
+          
+           this.state.billToEmail="("+response.data.customer_id+") "+response.data.address;
+           this.state.billToAddress=response.data.city+" ("+response.data.customer_phone_no+")";
+
+         }
+      ).catch(error=>{
+      console.log(error);
+      console.log("hello wrong  XXXXXXXXXXXXXXX");
+    
+   })}
+
+    
   }
 
-  runBillFrom=()=>{
-    console.log("run on Bill From")
+  runBillFrom=(event)=>{
+    const { value } = event.target;
+    const urlVal='s';
+    this.debouncedSearch(value,urlVal);
+
+    if (!event.keyCode) { // OR: if (e.keyCode === undefined)
+     
+    axios.get('http://localhost:8082/lock/Search/ss/'+value,{
+      headers: {
+          Authorization:  `Bearer ${this.state.jwt}`
+        }
+  }).then((response) =>{
+
+        
+          this.state.billFromEmail="("+response.data.seller_id+") "+response.data.address;
+          this.state.billFromAddress=response.data.city+" ("+response.data.seller_phone_no+")";
+
+        }
+     ).catch(error=>{
+     console.log(error);
+     console.log("hello wrong  XXXXXXXXXXXXXXX");
+   
+  })}
+   
   }
 
-
+///////////////////////////////////////////////////////////api call to search/////////
   render() {
     return (<Form onSubmit={this.openModal}>
 
@@ -216,16 +304,26 @@ class InvoiceForm extends React.Component {
             <Row className="mb-5">
               <Col >
                 <Form.Label  className="fw-bold">Bill to:</Form.Label>
-                <Form.Control id="billto"  placeholder={"Who is this invoice to?"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} onkeyup={this.runBillTo} autoComplete="name"  required="required"/>
+                <Form.Control id="billto"  placeholder={"Who is this invoice to?"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} onKeyUp={this.runBillTo} autoComplete="name" list='suggestionList' required="required"/>
                 <Form.Control  placeholder={"Email address"} value={this.state.billToEmail} type="email" name="billToEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" readonly="readonly" required="required"/>
                 <Form.Control  placeholder={"Billing address"} value={this.state.billToAddress} type="text" name="billToAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} readonly="readonly"  required="required"/>
               </Col>
               <Col>
                 <Form.Label className="fw-bold">Bill from:</Form.Label>
-                <Form.Control id="billFrom"  placeholder={"Who is this invoice from?"} rows={3} value={this.state.billFrom} type="text" name="billFrom" className="my-2" onChange={(event) => this.editField(event)} onkeyup={this.runBillFrom} autoComplete="name" required="required"/>
+                <Form.Control id="billFrom"  placeholder={"Who is this invoice from?"} rows={3} value={this.state.billFrom} type="text" name="billFrom" className="my-2" onChange={(event) => this.editField(event)} onKeyUp={this.runBillFrom} autoComplete="name" list='suggestionList' required="required"/>
                 <Form.Control  placeholder={"Email address"} value={this.state.billFromEmail} type="email" name="billFromEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" readonly="readonly" required="required"/>
                 <Form.Control  placeholder={"Billing address"} value={this.state.billFromAddress} type="text" name="billFromAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} readonly="readonly"  required="required"/>
               </Col>
+
+            <datalist id='suggestionList'>
+            {
+              Object.keys(this.state.responce).map((key) => {
+                   return( <option key={key} value={this.state.responce[key]}>{this.state.responce[key]}</option>)
+                          //console.log(key,this.state.responce[key])
+                        })
+            }
+          </datalist>
+
             </Row>
 
             <InvoiceItem onItemizedItemEdit={this.onItemizedItemEdit.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} currency={this.state.currency} items={this.state.items}/>
