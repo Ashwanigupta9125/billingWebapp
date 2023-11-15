@@ -1,0 +1,237 @@
+.main_loggin {
+    text-align: center;
+    justify-content: center;
+    display: flex; 
+    padding-top: 90px;
+    padding-bottom: 90px;
+    border-radius: 30px;
+    height: 100px;
+    
+    background-color: #6d6e73;
+  }
+  
+.imgs_loggin {
+      padding-top: 20px;
+      justify-content: center;
+      display: flex;
+}
+
+.container-imge_loggin {
+    background-color: rgb(223, 221, 221); 
+    border-radius: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+  }
+
+.profile_loggin {
+    height: 100px;
+    width: 100px;
+    border-radius: 130px;
+} 
+  
+input{
+      width: 300px;
+      height: 50px;
+      border-radius: 60px;
+      box-shadow: inset 0px 0px 25px 0px #888;
+      border: none;
+      outline: none;
+      background-color: #fff;
+}
+  
+  .email_loggin{
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      padding: 14px 0 0 25px;
+  }
+  
+  .name_loggin{
+      padding-left: 70px;
+      font-size: 20px;
+  }
+  .second-input_loggin{
+      padding-top: 20px;
+  }
+  
+  .logging-but_loggin{
+      width: 250px;
+      height: 50px;
+      border-radius: 60px;
+      background-color: #b103fc;
+      color: white;
+      font-size: 25px;
+      border: none;
+  }
+  .login-button_loggin{
+      padding-top: 25px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+.container_navbar{
+    display:flex;
+    margin-left: 0;
+    padding-left: 0;
+  
+}
+main{
+  width: 1000%;
+  padding: 20px;
+}
+.sidebar{
+    background: #000;
+    color: #fff;
+    height: auto;
+    width: 200px;
+    transition: all 0.5s;
+}
+.top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+}
+.logo{
+    font-size: 30px;
+}
+.bars{
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+}
+.link{
+    display: flex;
+    color: #fff;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+.link:hover{
+    background:lightskyblue;
+    color: #000;
+    transition: all 0.5s;
+}
+.active{
+    background: lightskyblue;
+    color: #000;
+}
+.icon, .link_text{
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+body, html {
+  font-size: 0.9rem;
+  background: #f2f3f7
+}
+body, .form-control {
+  font-size: 0.9rem
+}
+body,
+html,
+#root,
+.App {
+  min-height: 100vh
+}
+.btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.66rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,.05)!important
+}
+.App-link {
+  color: #61dafb;
+}
+
+.btn-light {
+  border-color: #dedede
+}
+
+.btn-light:hover {
+  border-color: #dedede;
+  background-color: #f3f3f3
+}
+
+.shadow {
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,.05)!important
+}
+
+.modal-content,
+.card {
+  overflow: hidden;
+  border-radius: 0.756rem
+}
+
+hr {
+  opacity: 0.1
+}
+
+.table th {
+  border-top: 1px solid #0000001a;
+  border-bottom: 1px solid #0000001a;
+  border-bottom-color: #0000001a!important
+}
+.table td {
+   text-align: left;
+}
+.table tr th:first-child,
+.table tr td:first-child {
+  padding-left: 0
+}
+.table tr th:last-child,
+.table tr td:last-child {
+  padding-right: 0
+}
+
+.form-control {
+  background: #f5f7f9;
+  font-weight: 400;
+  padding: .5rem .75rem;
+  border: none
+}
+
+.form-control:hover {
+  background: #f5f7f9;
+}
+
+.form-control::placeholder,
+.form-control::-ms-input-placeholder,
+.form-control:-ms-input-placeholder {
+  color: #9fa8b0
+}
+
+.form-control:focus {
+  background: #f5f7f9;
+}
+
+#invoiceCapture {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+
+
+
