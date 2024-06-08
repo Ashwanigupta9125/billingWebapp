@@ -1,4 +1,4 @@
-![image](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/62582817-76e2-4965-977f-98ec2358ce3e)![Screenshot (29)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/02030724-e0af-4340-8e1f-444e0c622dda)### It is SpringBoot Project with React Frontend. Build in Spring Tool Suite.
+### It is SpringBoot Project with React Frontend. Build in Spring Tool Suite.
 ## It is a Business Manager and Bill Printing System Application
 # Business Manager and Bill Printing System Rest API Using Spring Boot & Spring Security
 ### Fork and Star ⭐ Github Repo For New Feature Update
@@ -86,30 +86,55 @@
 ![Screenshot (30)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/0eea345f-c164-4c79-9834-aa7e3691819d)
 ![Screenshot (29)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/74e316b1-3942-441f-83c5-6797ceb36914)
 
-## buying and selling Products and send message to user
+
+## Generated biil and print
+## buying and selling Products and send message to user 
+
+
+
 ![Screenshot (31)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/ec3aa07b-c64a-4152-93ff-7a5d31ed58e5)
 ![Screenshot (42)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/5961c702-9620-44c9-868f-e3d340b1c891)
+![Screenshot (41)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/03b94970-7e45-46c2-954a-da9140a41213)
+
 
 
 ## Analytics reports
 
+
 ![Screenshot (45)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/f9ccdae0-6b4a-4362-b31e-9c0f30642085)
 ![Screenshot (44)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/98117967-936a-4d89-ac11-4fa680501f08)
 
+
+
+
 ## Registering user (customer/seller) 
+
+
 ![Screenshot (32)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/2801de85-0461-44b9-9201-0eaf93cd3486)
 ![Screenshot (33)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/d570b83e-1112-4d7f-b201-7aa2027ccd6e)
 
+
+
+
 ## search and modify Product and Stock
+
 
 
 ![Screenshot (34)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/5ffa2618-013b-40c2-b271-a909651c3260)
 ![Screenshot (35)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/6fee8bee-668f-452d-bccf-0e970cd8f6a1)
 
+
+
+
 ## POPUP and Alert 
+
+
 ![Screenshot (40)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/13b8e51d-42bb-48a9-affe-d340320e19f8)
 ![Screenshot (37)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/bc99f051-5426-4334-bc35-216f86eb0a48)
 
 
+# Logout
+
+![Screenshot (36)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/b26afd27-b78b-4925-b440-18c1fee2e88a)
 
 
