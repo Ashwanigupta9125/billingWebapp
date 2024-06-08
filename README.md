@@ -1,4 +1,4 @@
-### It is SpringBoot Project with React Frontend. Build in Spring Tool Suite.
+![Screenshot (29)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/02030724-e0af-4340-8e1f-444e0c622dda)### It is SpringBoot Project with React Frontend. Build in Spring Tool Suite.
 ## It is a Business Manager and Bill Printing System Application
 # Business Manager and Bill Printing System Rest API Using Spring Boot & Spring Security
 ### Fork and Star ⭐ Github Repo For New Feature Update
@@ -79,3 +79,9 @@
 
 
 ## Business Manager and Bill Printing Portal UI
+
+##Logging Screen
+
+![Screenshot (30)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/669cb8e4-cebc-4752-86ae-7f78195817d3)
+![Screenshot (30)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/0eea345f-c164-4c79-9834-aa7e3691819d)
+![Screenshot (29)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/74e316b1-3942-441f-83c5-6797ceb36914)
