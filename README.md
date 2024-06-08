@@ -87,7 +87,7 @@
 ![Screenshot (29)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/74e316b1-3942-441f-83c5-6797ceb36914)
 
 
-## Generated biil and print
+## Generated bill and print
 ## buying and selling Products and send message to user 
 
 
@@ -99,10 +99,10 @@
 
 
 ## Analytics reports
-
+![Screenshot (44)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/98117967-936a-4d89-ac11-4fa680501f08)
 
 ![Screenshot (45)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/f9ccdae0-6b4a-4362-b31e-9c0f30642085)
-![Screenshot (44)](https://github.com/Ashwanigupta9125/billingWebapp/assets/68058110/98117967-936a-4d89-ac11-4fa680501f08)
+
 
 
 
